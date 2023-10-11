@@ -35,7 +35,6 @@ router.put(
   "/:id",
   [
     check("id", "No es un Id válido").isMongoId(),
-    //validar si el id existe
     check("id").custom(existeUsuarioPorId),
     check("role").custom(esRoleValido),
     validarCampos,

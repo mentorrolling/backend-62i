@@ -69,6 +69,7 @@ const usuarioDelete = async (req, res) => {
   // const usuarioBorrado = await Usuario.findByIdAndDelete(id);
 
   //Inactivar un documento
+
   const usuarioBorrado = await Usuario.findByIdAndUpdate(
     id,
     {
