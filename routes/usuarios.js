@@ -17,7 +17,15 @@ const {
 
 const router = Router();
 
-router.get("/", [validarJWT], usuariosGet);
+router.get(
+  "/",
+  [
+    validarJWT,
+    //validar si es administrador
+  ],
+  usuariosGet
+);
+
 router.post(
   "/",
   [
@@ -47,6 +55,7 @@ router.delete(
   "/:id",
   [
     validarJWT,
+    //validar si es administrador
     check("id", "No es un Id válido").isMongoId(),
     check("id").custom(existeUsuarioPorId),
     validarCampos,

@@ -27,6 +27,10 @@ const existeUsuarioPorId = async (id) => {
   }
 };
 
+//validar categoria por id
+
+//validar Producto por id
+
 module.exports = {
   esRoleValido,
   emailExiste,
