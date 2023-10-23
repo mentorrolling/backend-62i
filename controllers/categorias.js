@@ -5,9 +5,12 @@ const obtenerCategorias = async (req = request, res = response) => {
   const { limite = 5, desde = 0 } = req.query;
   const consulta = { estado: true };
 
-  const [categorias, total] = await Promise.all([
-    Categoria.find(consulta),
-    Categoria.countDocuments(consulta).skip(desde).limit(limite),
+  const [total, categorias] = await Promise.all([
+    Categoria.countDocuments(consulta),
+    Categoria.find(consulta)
+      .skip(desde)
+      .limit(limite)
+      .populate("usuario", "name email"),
     //  traer datos del usuario que creo la categoría
   ]);
 

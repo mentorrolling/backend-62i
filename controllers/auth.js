@@ -6,7 +6,7 @@ const Usuario = require("../models/usuario");
 const { generarJWT } = require("../helpers/generar-jwt");
 
 const login = async (req = request, res = response) => {
-  const { email, password, codigo } = req.body;
+  const { email, password } = req.body;
 
   try {
     //verificar si el email existe

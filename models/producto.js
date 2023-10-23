@@ -34,6 +34,10 @@ const ProductoSchema = Schema({
   img: {
     type: String,
   },
+  stock: {
+    type: Number,
+    default: 0,
+  },
 });
 
 //quitar datos de la respuesta JSON (opcional)
