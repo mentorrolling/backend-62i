@@ -90,7 +90,9 @@ const actualizarProducto = async (req, res) => {
     data.stock = req.body.stock;
   }
 
-  const producto = await Producto.findByIdAndUpdate(id, data, { new: true });
+  const producto = await Producto.findByIdAndUpdate(id, data, { new: true })
+    .populate("categoria", "nombre")
+    .populate("usuario", "email");
 
   res.status(200).json(producto);
 };

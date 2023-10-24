@@ -22,7 +22,10 @@ const obtenerCategorias = async (req = request, res = response) => {
 
 const obtenerCategoria = async (req = request, res = response) => {
   const { id } = req.params;
-  const categoria = await Categoria.findById(id);
+  const categoria = await Categoria.findById(id).populate(
+    "usuario",
+    "name email"
+  );
   //  traer datos del usuario que creo la categoría
 
   res.status(200).json({
