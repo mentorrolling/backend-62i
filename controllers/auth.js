@@ -1,5 +1,6 @@
 const { response, request } = require("express");
 const bcryptjs = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 const Usuario = require("../models/usuario");
 
 //importar para generar el JWT
@@ -47,6 +48,16 @@ const login = async (req = request, res = response) => {
   }
 };
 
+const obtenerID = (req = request, res = response) => {
+  const { id, role } = req.usuario;
+
+  res.json({
+    id,
+    role,
+  });
+};
+
 module.exports = {
   login,
+  obtenerID,
 };

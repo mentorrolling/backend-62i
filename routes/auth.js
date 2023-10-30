@@ -2,10 +2,14 @@ const { Router } = require("express");
 const { check } = require("express-validator");
 const { validarCampos } = require("../middlewares/validar-campos");
 
+const { validarJWT } = require("../middlewares/validar-jwt");
 //importar el controlador
-const { login } = require("../controllers/auth");
+
+const { login, obtenerID } = require("../controllers/auth");
+
 const router = Router();
 
+router.get("/", [validarJWT], obtenerID);
 router.post(
   "/login",
   [
