@@ -91,6 +91,9 @@ const actualizarProducto = async (req, res) => {
   if (req.body.stock) {
     data.stock = req.body.stock;
   }
+  if (req.body.img) {
+    data.img = req.body.img;
+  }
 
   const producto = await Producto.findByIdAndUpdate(id, data, { new: true })
     .populate("categoria", "nombre")
