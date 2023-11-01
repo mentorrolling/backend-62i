@@ -73,7 +73,7 @@ const productoPost = async (req, res) => {
 
 const actualizarProducto = async (req, res) => {
   const { id } = req.params;
-  const { precio, categoria, descripcion, disponible } = req.body;
+  const { precio, categoria, descripcion, disponible, estado } = req.body;
   const usuario = req.usuario._id;
 
   let data = {
@@ -82,6 +82,7 @@ const actualizarProducto = async (req, res) => {
     categoria,
     disponible,
     usuario,
+    estado,
   };
 
   if (req.body.nombre) {
